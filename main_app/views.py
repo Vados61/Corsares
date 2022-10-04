@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
+from map.map import map
+
 
 def index(request):
-    return render(request, 'base.html')
+    context = {
+        'map': map.values()
+    }
+    return render(request, 'base.html', context)
 
 
 def new_character(request):
